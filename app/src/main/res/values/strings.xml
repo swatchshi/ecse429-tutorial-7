@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">EventRegistration-Android</string>
+    <string name="action_settings">Settings</string>
+    <string name="newparticipant_button">Add Participant</string>
+    <string name="newparticipant_hint">Who?</string>
+    <string name="refresh_participant_list">Refresh Participant List</string>
+</resources>

@@ -2,13 +2,21 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 28
+
+    /* defaultConfig {
+         applicationId "ca.mcgill.ecse321.eventregistration"
+         minSdkVersion 18
+         targetSdkVersion 28
+         versionCode 1
+         versionName "1.0"
+     } */
+
     defaultConfig {
-        applicationId "ca.mcgill.ecse321.eventregistration"
         minSdkVersion 18
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -18,6 +26,27 @@ android {
     useLibrary 'android.test.runner'
     useLibrary 'android.test.base'
     useLibrary 'android.test.mock'
+
+
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+
+
+    }
+
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+
+  /*  // ... other settings
+    useLibrary 'android.test.runner'
+    useLibrary 'android.test.base'
+    useLibrary 'android.test.mock'
+    // ... other settings  */
 }
 
 dependencies {
@@ -28,5 +57,33 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 
     implementation 'com.loopj.android:android-async-http:1.4.9'
+
+    testImplementation 'org.mockito:mockito-core:2.23.0'
+
+
+    //testImplementation 'junit:junit:4.12'
+    //testImplementation 'org.mockito:mockito-core:2.23.0'
+    testImplementation 'org.robolectric:robolectric:4.0'
+
+    // ... other dependencies  for the instumental test
+    // Core library
+    androidTestImplementation 'androidx.test:core:1.0.0'
+    // AndroidJUnitRunner and JUnit Rules
+    androidTestImplementation 'androidx.test:runner:1.1.0'
+    androidTestImplementation 'androidx.test:rules:1.1.0'
+    // Assertions
+    androidTestImplementation 'androidx.test.ext:junit:1.0.0'
+    androidTestImplementation 'androidx.test.ext:truth:1.0.0'
+    androidTestImplementation 'com.google.truth:truth:0.42'
+    // Espresso dependencies
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-accessibility:3.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-web:3.1.0'
+    // Add these for applications having significant library dependencies
+    androidTestImplementation 'com.google.dexmaker:dexmaker:1.2'
+    // Android-specific Mockito
+    androidTestImplementation 'com.google.dexmaker:dexmaker-mockito:1.2:'
 
 }
